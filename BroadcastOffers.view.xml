@@ -1,0 +1,139 @@
+<mvc:View controllerName="zadminportalapp.controller.BroadcastOffers"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form">
+    <IconTabBar id="idIconTabBarNoIcons" expanded="{device>/isNoPhone}" class="sapUiResponsiveContentPadding">
+        <items>
+            <IconTabFilter text="Broadcasted Message" key="info">
+                <Table id="id_tb_Table0" mode="SingleSelectLeft" selectionChange="onRowSelectionChangeType" inset="false" items="{path: 'broadcastoffersModel>/BroadcastOffersAndSchemes'}">
+                    <headerToolbar>
+                        <OverflowToolbar>
+                            <content>
+                                <ToolbarSpacer />
+                                <Button id="createButton" icon="sap-icon://add" tooltip="Create" visible="true" press="onOpenAddDialogType" />
+                                <Button id="editButton" icon="sap-icon://edit" tooltip="Edit" press="onEditPressType" enabled="false" />
+                                <Button id="deleteButton" icon="sap-icon://delete" tooltip="Delete" visible="true" enabled="false" press="onDeleteType" />
+                            </content>
+                            <dependents>
+                                <Dialog id="OpenDialog" title="BroadcastOffers">
+                                    <buttons>
+                                        <Button id="confirmCreate" text="Create" press=".onCreateType" type="Emphasized" visible="false" />
+                                        <Button id="cancelCreate" text="Cancel" press="onCancelDialogType" type="Transparent" />
+                                        <Button id="confirmSave" text="Save" press=".onSaveType" type="Emphasized" visible="false" />
+                                    </buttons>
+                                    <f:SimpleForm editable="true" layout="ResponsiveGridLayout">
+                                        <f:content>
+                                            <Label text="Type of offers and schemes" />
+                                          
+                                            <ComboBox id="id_typeofferandschemes">
+                                                <items>
+                                                  <core:Item key="ProductInformation" text="Product Information" />
+                                                  <core:Item key="NewAnnouncement" text="New Announcement" />
+                                                  <core:Item key="SalesPromotions" text="Sales Promotions" />
+                                                  <core:Item key="NewProductFeaturesSchemes" text="New Product Features Schemes" />
+                                                  <core:Item key="Notifications" text="Notifications" />
+                                                </items>
+                                              </ComboBox>
+                                          
+                                            <Label text="Region" />
+                                            <Input id="idregion" />
+                                            <Label text="Zone" />
+                                            <Input id="idzone" />
+                                            <Label text="District" />
+                                            <Input id="iddistrict" />
+                                            <Label text="Branch" />
+                                            <Input id="idbranch" />
+                                            <Label text="Subject" />
+                                            <Input id="idsubject" />
+                                            <Label text="Description" />
+                                            <Input id="iddescription" />
+                                        </f:content>
+                                    </f:SimpleForm>
+                                </Dialog>
+                            </dependents>
+                        </OverflowToolbar>
+                    </headerToolbar>
+                    <columns>
+                        <Column>
+                            <Text text="Description" />
+                        </Column>
+                        <Column>
+                            <Text text="Type of Offers and Schemes" />
+                        </Column>
+                        <Column>
+                            <Text text="Zone" />
+                        </Column>
+                        <Column>
+                            <Text text="Region" />
+                        </Column>
+                        <Column>
+                            <Text text="District" />
+                        </Column>
+                        <Column>
+                            <Text text="Branch" />
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem vAlign="Middle">
+                            <cells>
+                                <Text text="{broadcastoffersModel>Offersschemedescription}" />
+                                <Text text="{broadcastoffersModel>typeofofferandscheme}" />
+                                <Text text="{broadcastoffersModel>zone}" />
+                                <Text text="{broadcastoffersModel>region}" />
+                                <Text text="{broadcastoffersModel>district}" />
+                                <Text text="{broadcastoffersModel>Branch}" />
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </IconTabFilter>
+            <IconTabFilter text="Customer Message" key="info">
+                <Table id="id_tb_Table1" mode="SingleSelectLeft" selectionChange="onRowSelectionChangeValue" inset="false" items="{path: 'broadcastoffersModel>/OffersAndSchemes'}">
+                    <headerToolbar>
+                        <OverflowToolbar>
+                            <content>
+                                <ToolbarSpacer />
+                                <Button id="id_create" icon="sap-icon://add" tooltip="Create" visible="true" press="onOpenAddDialogValue" />
+                                <Button id="id_edit" icon="sap-icon://edit" tooltip="Edit" press="onEditPressValue" enabled="false" />
+                                <Button id="id_delete" icon="sap-icon://delete" tooltip="Delete" visible="true" enabled="false" press="onDeleteValue" />
+                            </content>
+                            <dependents>
+                                <Dialog id="id_OpenDialog" title="Customer Message">
+                                    <buttons>
+                                        <Button id="id_confirmCreate" text="Create" press=".onCreateValue" type="Emphasized" visible="false" />
+                                        <Button id="id_cancelCreate" text="Cancel" press="onCancelDialogValue" type="Transparent" />
+                                        <Button id="id_confirmSave" text="Save" press=".onSaveValue" type="Emphasized" visible="false" />
+                                    </buttons>
+                                    <f:SimpleForm editable="true" layout="ResponsiveGridLayout">
+                                        <f:content>
+                                            <Label text="Offers Scheme Description" />
+                                            <Input id="idoffersscheme" />
+                                        </f:content>
+                                    </f:SimpleForm>
+                                </Dialog>
+                            </dependents>
+                        </OverflowToolbar>
+                    </headerToolbar>
+                    <columns>
+                        <Column>
+                            <Text text="Typeofofferandscheme" />
+                        </Column>
+                        <Column>
+                            <Text text="Offers Scheme Description" />
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem vAlign="Middle">
+                            <cells>
+                                <Text text="{broadcastoffersModel>typeofofferandscheme}" />
+                                <Text text="{broadcastoffersModel>offersschemedescription}" />
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </IconTabFilter>
+        </items>
+    </IconTabBar>
+</mvc:View>

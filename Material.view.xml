@@ -1,0 +1,186 @@
+<mvc:View
+    controllerName="zadminportalapp.controller.Material"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+>
+   
+            <Title text="Material  Master Data" />
+            <Table
+                id="id_tb_Plant_Table"
+                items="{path: 'masterDataModel>/Material'}"
+                inset="false"
+                selectionChange="onRowSelectionChangeMaterial"
+                mode="SingleSelectLeft"
+            >
+                <headerToolbar>
+                    <OverflowToolbar>
+                        <content>
+                            <ToolbarSpacer />
+
+                            <Button
+                                id="id_mat_createButton"
+                                press="onOpenAddDialogMaterial"
+                                visible="true"
+                                tooltip="Create"
+                                icon="sap-icon://add"
+                            />
+
+                            <Button
+                                id="id_mat_editButton"
+                                press="onEditPressMaterial"
+                                tooltip="Edit"
+                                icon="sap-icon://edit"
+                                enabled="false"
+                            />
+
+                            <Button
+                                id="id_mat_deleteButton"
+                                press="onDeleteMaterial"
+                                visible="true"
+                                tooltip="Delete"
+                                icon="sap-icon://delete"
+                                enabled="false"
+                            />
+                        </content>
+
+                        <dependents>
+                            <Dialog
+                                title="Material Data"
+                                id="id_mat_OpenDialog"
+                            >
+                                <buttons>
+                                    <Button
+                                        id="id_mat_confirmCreate"
+                                        text="Create"
+                                        press=".onCreateMaterial"
+                                        visible="false"
+                                        type="Emphasized"
+                                    />
+
+                                    <Button
+                                        id="id_mat_cancelCreate"
+                                        text="Cancel"
+                                        press="onCancelDialogMaterial"
+                                        type="Transparent"
+                                    />
+
+                                    <Button
+                                        id="id_mat_confirmSave"
+                                        text="Save"
+                                        press=".onSaveMaterial"
+                                        visible="false"
+                                        type="Emphasized"
+                                    />
+                                </buttons>
+
+                                <f:SimpleForm
+                                    layout="ResponsiveGridLayout"
+                                    editable="true"
+                                >
+                                    <f:content>
+                                        <Label text="MaterialID" />
+                                        <Input id="id_matID" />
+
+                                        <Label text="MaterialDescription" />
+
+                                        <Input id="id_matdescription" />
+
+                                        
+                                        <Label text="DisplayValue" />
+
+                                        <Input id="id_matDisplayValue" />
+                                        <Label text="UnitOfMeasure" />
+
+                                       <ComboBox id="id_matuom">
+                                            <core:Item   key="1"  text=""/>
+                                             
+                                            <core:Item  key="2"   text="BAG"/>
+                                              
+                                            <core:Item   key="3"   text="PC"/>
+                                              
+                                            <core:Item  key="4"  text="TO"/>
+                                              
+                                        </ComboBox>
+                                        <Label text="UnitOfMeasure" />
+
+                                        <Input id="id_matunit"  editable="false"  />
+                                        <Label text="MaterialType" />
+
+                                       <ComboBox id="id_mattype">
+                                            <core:Item   key="1"  text=""/>
+                                            
+                                        </ComboBox>
+                                        <Label text="MaterialType" />
+
+                                        <Input id="id_matType"  editable="false"  />
+                                       <Label text="MaterialGroup" />
+
+                                       <ComboBox id="id_matGroup">
+                                            <core:Item   key="1"  text=""/>
+                                            
+                                        </ComboBox>
+                                        <Label text="MaterialGroup" />
+
+                                        <Input id="id_matgroup"  editable="false"/> 
+                                        <Label text="Active"/>
+											<Switch id="id_matActive" type="AcceptReject"/>
+
+                                    </f:content>
+                                </f:SimpleForm>
+                            </Dialog>
+                        </dependents>
+                    </OverflowToolbar>
+                </headerToolbar>
+
+                <columns>
+                    <Column>
+                        <Text text="MaterialID" />
+                    </Column>
+                    <Column>
+                        <Text text="MaterialDescription" />
+                    </Column>
+
+                    <Column>
+                        <Text text="MaterialGroup" />
+                    </Column>
+                     <Column>
+                        <Text text="UnitOfMeasure" />
+                    </Column>
+                    <Column>
+                        <Text text="MaterialType" />
+                    </Column>
+
+                    <Column>
+                        <Text text="DisplayValue" />
+                    </Column>
+                    <Column>
+                        <Text text="Active" />
+                    </Column>
+                </columns>
+
+                <items>
+                    <ColumnListItem vAlign="Middle">
+                        <cells>
+                            <Text text="{masterDataModel>MaterialID}" />
+
+                            <Text text="{masterDataModel>MaterialDescription}" />
+
+                            <Text text="{masterDataModel>MaterialGroup}" />
+                        
+                            <Text text="{masterDataModel>UnitOfMeasure}" />
+
+                            <Text text="{masterDataModel>MaterialType}" />
+
+                            <Text text="{masterDataModel>DisplayValue}" />
+
+                            <Text text="{masterDataModel>Active}" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        
+</mvc:View>

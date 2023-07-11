@@ -1,0 +1,140 @@
+<mvc:View
+    controllerName="zadminportalapp.controller.Root"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:tnt="sap.tnt"
+>
+         <tnt:ToolPage id="toolPage" sideExpanded="true">
+            <tnt:header>
+                <tnt:ToolHeader>
+                   <ToolbarSpacer width="60px"/>
+                     <MenuButton text="Technical Admin Configuration">
+                    <menu>
+                        <Menu>
+                            <MenuItem
+                                text="Accounts"
+                                icon="sap-icon://account"
+                                press="navigateToPage" key="accounts"
+                            />
+                            <MenuItem
+                                text="Integration"
+                                icon="sap-icon://combine"
+                                press="navigateToPage" key="Integration"
+                            />
+                            <MenuItem
+                                text="Email"
+                                icon="sap-icon://email"
+                            />
+                            <MenuItem
+                                text="Import Configuration"
+                                icon="sap-icon://folder"
+                            />
+                            <MenuItem
+                                text="Model Reflection"
+                                icon="sap-icon://synchronize"
+                            />
+                            <MenuItem
+                                text="Forget Password "
+                                icon="sap-icon://hide"
+                            />
+                            <MenuItem
+                                text="Maintainence"
+                                icon="sap-icon://edit"
+                            />
+                            <MenuItem
+                                text="Product Catalogue"
+                                icon="sap-icon://cart-full"
+                            />
+                        </Menu>
+                    </menu>
+                </MenuButton>
+
+                 <MenuButton text="Dealer Configuration">
+                    <menu>
+                        <Menu>
+                            <MenuItem
+                                text="Broadcast Offeres/Schemes"
+                                icon="sap-icon://pushpin-on"
+                                press="navigateToPage" key="BroadcastOffers"
+                            />
+                            <MenuItem
+                                text="Broadcast History"
+                                icon="sap-icon://folder"
+                            />
+                        </Menu>
+                    </menu>
+                </MenuButton>
+                 <MenuButton
+                    text="Master Data"
+                    icon="sap-icon://blur"
+                >
+                    <menu>
+                        <Menu>
+                            <MenuItem
+                                text="Material"
+                                press="navigateToPage" key="Material"
+                            />
+
+                            <MenuItem
+                                text="Plant"
+                                press="navigateToPage" key="Plant"
+                            />
+                            <MenuItem
+                                text="Customer"
+                                press="navigateToPage" key="Customer"
+                            />
+                            <MenuItem
+                                text="Sales Officer"
+                                press="navigateToPage" key="Salesofficer"
+                            />
+                            <MenuItem
+                                text="FY Setup"
+                                press="navigateToPage" key="Fyvariant"
+                            />
+                            <MenuItem
+                                text="SalesTargetData"
+                                press="navigateToPage" key="SalesTarget"
+                            />
+                        </Menu>
+                    </menu>
+                </MenuButton>
+                 <MenuButton text="Reference data" icon="sap-icon://action" >
+                    <menu>
+                        <Menu>
+                            <MenuItem
+                                text="Reference Data" key ="Referencedata" press="navigateToPage"
+                               
+                            />
+                           
+                        </Menu>
+                    </menu>
+                </MenuButton>
+                 
+                <MenuButton
+                    text="Add Images"
+                    icon="sap-icon://add"
+                />
+
+                <MenuButton
+                    text="Import"
+                    icon="sap-icon://download"
+                >
+                    <menu>
+                        <Menu>
+                            <MenuItem text="Batch Import" />
+                            <MenuItem text="Batch Import Status" />
+                        </Menu>
+                    </menu>
+                </MenuButton>
+
+                <MenuButton text="Functional Configuration" />
+                </tnt:ToolHeader>
+            </tnt:header>
+          
+            <tnt:mainContents>
+                <NavContainer id="navContainer" />
+                 
+            </tnt:mainContents>
+        </tnt:ToolPage>
+       
+</mvc:View>

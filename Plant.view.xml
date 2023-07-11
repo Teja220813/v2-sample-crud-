@@ -1,0 +1,131 @@
+<mvc:View
+    controllerName="zadminportalapp.controller.Plant"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core" id="id_plantView"
+>
+    
+            <Title text="Plant MAster Data" />
+            <Table
+                id="id_tb_Plant_Table"
+                items="{path: 'masterDataModel>/PlantMasterData'}"
+                inset="false"
+                selectionChange="onRowSelectionChangePlant"
+                mode="SingleSelectLeft"
+            >
+                <headerToolbar>
+                    <OverflowToolbar>
+                        <content>
+                            <ToolbarSpacer />
+
+                            <Button
+                                id="id_plant_createButton"
+                                press="onOpenAddDialogPlant"
+                                visible="true"
+                                tooltip="Create"
+                                icon="sap-icon://add"
+                            />
+
+                            <Button
+                                id="id_plant_editButton"
+                                press="onEditPressPlant"
+                                tooltip="Edit"
+                                icon="sap-icon://edit"
+                                enabled="false"
+                            />
+
+                            <Button
+                                id="id_plant_deleteButton"
+                                press="onDeletePlant"
+                                visible="true"
+                                tooltip="Delete"
+                                icon="sap-icon://delete"
+                                enabled="false"
+                            />
+                        </content>
+
+                        <dependents>
+                            <Dialog
+                                title="Plant Master Data"
+                                id="id_plant_OpenDialog"
+                            >
+                                <buttons>
+                                    <Button
+                                        id="id_plant_confirmCreate"
+                                        text="Create"
+                                        press=".onCreatePlant"
+                                        visible="false"
+                                        type="Emphasized"
+                                    />
+
+                                    <Button
+                                        id="id_plant_cancelCreate"
+                                        text="Cancel"
+                                        press="onCancelDialogPlant"
+                                        type="Transparent"
+                                    />
+
+                                    <Button
+                                        id="id_plant_confirmSave"
+                                        text="Save"
+                                        press=".onSavePlant"
+                                        visible="false"
+                                        type="Emphasized"
+                                    />
+                                </buttons>
+
+                                <f:SimpleForm
+                                    layout="ResponsiveGridLayout"
+                                    editable="true"
+                                >
+                                    <f:content>
+                                        <Label text="Code" />
+                                        <Input id="id_PlantCode" />
+
+                                        <Label text="Description" />
+
+                                        <Input id="id_Plantdescription" />
+
+                                        <Label text="ShippingPoint" />
+
+                                        <Input id="id_PlantShippingPoint" />
+                                        <Label text="Display" />
+
+                                        <Input id="id_PlantDisplay" />
+                                    </f:content>
+                                </f:SimpleForm>
+                            </Dialog>
+                        </dependents>
+                    </OverflowToolbar>
+                </headerToolbar>
+
+                <columns>
+                    <Column>
+                        <Text text="Code" />
+                    </Column>
+                    <Column>
+                        <Text text="Description" />
+                    </Column>
+
+                    <Column>
+                        <Text text="ShippingPoint" />
+                    </Column>
+                </columns>
+
+                <items>
+                    <ColumnListItem vAlign="Middle">
+                        <cells>
+                            <Text text="{masterDataModel>Code}" />
+
+                            <Text text="{masterDataModel>Description}" />
+
+                            <Text text="{masterDataModel>ShippingPoint}" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+       
+</mvc:View>

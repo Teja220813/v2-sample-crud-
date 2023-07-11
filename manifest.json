@@ -1,0 +1,314 @@
+{
+    "_version": "1.49.0",
+    "sap.app": {
+        "id": "zadminportalapp",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "0.0.1"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "resources": "resources.json",
+        "sourceTemplate": {
+            "id": "@sap/generator-fiori:basic",
+            "version": "1.9.7",
+            "toolsId": "4b747b90-f843-4acb-bf4c-49593104f911"
+        },
+        "dataSources": {
+            "mainService": {
+                "uri": "/v2/catservice/",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/mainService/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            },
+            "CatalogServiceRef": {
+                "uri": "/v2/CatalogServiceRef/",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/CatalogServiceRef/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            },
+            "CatalogServiceSalesTarget": {
+                "uri": "/v2/CatalogServiceSalesTarget/",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/CatalogServiceSalesTarget/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            },
+            "CatalogServicePromotionService": {
+                "uri": "/v2/CatalogServicePromotionService/",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/CatalogServicePromotionService/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            }
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "flexEnabled": true,
+        "dependencies": {
+            "minUI5Version": "1.114.0",
+            "libs": {
+                "sap.m": {},
+                "sap.ui.core": {},
+                "sap.f": {},
+                "sap.suite.ui.generic.template": {},
+                "sap.ui.comp": {},
+                "sap.ui.generic.app": {},
+                "sap.ui.table": {},
+                "sap.ushell": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "zadminportalapp.i18n.i18n"
+                }
+            },
+            "masterDataModel": {
+                "dataSource": "mainService",
+                "preload": true,
+                "settings": {}
+            },
+            "referenceModel": {
+                "dataSource": "CatalogServiceRef",
+                "preload": true,
+                "settings": {
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline",
+                    "refreshAfterChange": false,
+                    "metadataUrlParams": {
+                        "sap-value-list": "none"
+                    }
+                }
+            },
+            "salesTargetDataModel": {
+                "dataSource": "CatalogServiceSalesTarget",
+                "preload": true,
+                "settings": {
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline",
+                    "refreshAfterChange": false,
+                    "metadataUrlParams": {
+                        "sap-value-list": "none"
+                    }
+                }
+            },
+            "broadcastoffersModel": {
+                "dataSource": "CatalogServicePromotionService",
+                "preload": true,
+                "settings": {
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline",
+                    "refreshAfterChange": false,
+                    "metadataUrlParams": {
+                        "sap-value-list": "none"
+                    }
+                }
+            }
+        },
+        "resources": {
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ]
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "viewType": "XML",
+                "async": true,
+                "viewPath": "zadminportalapp.view",
+                "controlAggregation": "pages",
+                "controlId": "app",
+                "clearControlAggregation": false
+            },
+            "routes": [
+                {
+                    "name": "RouteRoot",
+                    "pattern": ":?query:",
+                    "target": [
+                        "TargetRoot"
+                    ]
+                },
+                {
+                    "name": "Salesofficer",
+                    "pattern": "Salesofficer",
+                    "target": [
+                        "Salesofficer"
+                    ]
+                },
+                {
+                    "name": "BroadcastOffers",
+                    "pattern": "BroadcastOffers",
+                    "target": [
+                        "BroadcastOffers"
+                    ]
+                },
+                {
+                    "name": "Fyvariant",
+                    "pattern": "Fyvariant",
+                    "target": [
+                        "Fyvariant"
+                    ]
+                },
+                {
+                    "name": "Customer",
+                    "pattern": "Customer",
+                    "target": [
+                        "Customer"
+                    ]
+                },
+                {
+                    "name": "Material",
+                    "pattern": "Material",
+                    "target": [
+                        "Material"
+                    ]
+                },
+                {
+                    "name": "Referencedata",
+                    "pattern": "Referencedata",
+                    "target": [
+                        "Referencedata"
+                    ]
+                },
+                {
+                    "name": "Plant",
+                    "pattern": "Plant",
+                    "target": [
+                        "Plant"
+                    ]
+                },
+                {
+                    "name": "SalesTarget",
+                    "pattern": "SalesTarget",
+                    "target": [
+                        "SalesTarget"
+                    ]
+                }
+            ],
+            "targets": {
+                "TargetRoot": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "Root",
+                    "viewName": "Root"
+                },
+                "TargetOffers": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "Offers",
+                    "viewName": "Offers"
+                },
+                "Targetmain": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "Root",
+                    "viewName": "Root"
+                },
+                "Salesofficer": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "Salesofficer",
+                    "viewName": "Salesofficer"
+                },
+                "Fyvariant": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "Fyvariant",
+                    "viewName": "Fyvariant"
+                },
+                "Customer": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "Customer",
+                    "viewName": "Customer"
+                },
+                "Material": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "Material",
+                    "viewName": "Material"
+                },
+                "Plant": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "Plant",
+                    "viewName": "Plant"
+                },
+                "Referencedata": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "Referencedata",
+                    "viewName": "Referencedata"
+                },
+                "SalesTarget": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "SalesTarget",
+                    "viewName": "SalesTarget"
+                },
+                "BroadcastOffers": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "BroadcastOffers",
+                    "viewName": "BroadcastOffers"
+                }
+            }
+        },
+        "rootView": {
+            "viewName": "zadminportalapp.view.App",
+            "type": "XML",
+            "async": true,
+            "id": "App"
+        }
+    },
+    "sap.cloud": {
+        "public": true,
+        "service": "zadminportalapp"
+    }
+}

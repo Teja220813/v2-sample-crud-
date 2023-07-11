@@ -1,0 +1,231 @@
+<mvc:View
+    controllerName="zadminportalapp.controller.SalesTarget"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+>
+    <Title text="Sales Target For Customer" />
+    <Table
+        id="id_tb_STC_Table"
+        items="{path: 'salesTargetDataModel>/SalesTargetForCustomer'}"
+        inset="false"
+        selectionChange="onRowSelectionChangeSalesTarget"
+        mode="SingleSelectLeft"
+    >
+        <headerToolbar>
+            <OverflowToolbar>
+                <content>
+                    <ToolbarSpacer />
+
+                    <Button
+                        id="id_std_createButton"
+                        press="onOpenAddDialogSalesTarget"
+                        visible="true"
+                        tooltip="Create"
+                        icon="sap-icon://add"
+                    />
+
+                    <Button
+                        id="id_std_editButton"
+                        press="onEditPressSalesTarget"
+                        tooltip="Edit"
+                        icon="sap-icon://edit"
+                        enabled="false"
+                    />
+
+                    <Button
+                        id="id_std_deleteButton"
+                        press="onDeleteSalesTarget"
+                        visible="true"
+                        tooltip="Delete"
+                        icon="sap-icon://delete"
+                        enabled="false"
+                    />
+                </content>
+
+                <dependents>
+                    <Dialog
+                        title="Sales Target Data"
+                        id="id_std_OpenDialog"
+                    >
+                        <buttons>
+                            <Button
+                                id="id_std_confirmCreate"
+                                text="Create"
+                                press=".onCreateSalesTarget"
+                                visible="false"
+                                type="Emphasized"
+                            />
+
+                            <Button
+                                id="id_std_cancelCreate"
+                                text="Cancel"
+                                press="onCancelDialogSalesTarget"
+                                type="Transparent"
+                            />
+
+                            <Button
+                                id="id_std_confirmSave"
+                                text="Save"
+                                press=".onSaveSalesTarget"
+                                visible="false"
+                                type="Emphasized"
+                            />
+                        </buttons>
+
+                        <f:SimpleForm
+                            layout="ResponsiveGridLayout"
+                            editable="true"
+                        >
+                            <f:content>
+                                <Label text="Customer" />
+
+                                <ComboBox
+                                    id="id_std_customer"
+                                    items="{path: 'masterDataModel>/CustomerMasterData'}"
+                                >
+                                    <core:Item
+                                        key="{masterDataModel>Customer}"
+                                        text="{masterDataModel>Name}"
+                                    />
+                                </ComboBox>
+                                
+                                <Label
+                                    text="UoM"/>
+                                    <Input id="id_std_Uom" />
+                                    
+                                
+                                <Label text="FY" />
+                                <Input id="id_std_Fy" />
+                                 <Label text="April" />
+                                <Input id="id_std_April" />
+                               
+                                 <Label text="May" />
+                                <Input id="id_std_May" />
+                               
+                                    <Label text="June" />
+                                <Input id="id_std_June" />
+                                <Label text="June" />
+                                   <Label text="July" />
+                                <Input id="id_std_JUly" />
+                                
+                                   <Label text="August" />
+                                <Input id="id_std_August" />
+                               
+                                 <Label text="September" />
+                                <Input id="id_std_Sept" />
+                                
+                                  <Label text="October" />
+                                <Input id="id_std_Oct" />
+                               
+                                 <Label text="November" />
+                                <Input id="id_std_Nov" />
+                                
+                                  <Label text="December" />
+                                <Input id="id_std_Dec" />
+                                
+                                <Label text="January" />
+                                <Input id="id_std_JAn" />
+                                
+                                <Label text="February" />
+                                <Input id="id_std_Feb" />
+                                    <Label text="March" />
+                                 <Input id="id_std_Mar" />
+                               
+
+                            </f:content>
+                        </f:SimpleForm>
+                    </Dialog>
+                </dependents>
+            </OverflowToolbar>
+        </headerToolbar>
+
+        <columns>
+            <Column>
+                <Text text="CustomerID" />
+            </Column>
+            <Column>
+                <Text text="UoM" />
+            </Column>
+
+            <Column>
+                <Text text="FY" />
+            </Column>
+            <Column>
+                <Text text="April" />
+            </Column>
+            <Column>
+                <Text text="May" />
+            </Column>
+
+            <Column>
+                <Text text="June" />
+            </Column>
+            
+            <Column>
+                <Text text="July" />
+            </Column>
+            <Column>
+                <Text text="August" />
+            </Column>
+            <Column>
+                <Text text="September" />
+            </Column>
+            <Column>
+                <Text text="October" />
+            </Column>
+            <Column>
+                <Text text="November" />
+            </Column>
+            <Column>
+                <Text text="December" />
+            </Column>
+             <Column>
+                <Text text="January" />
+            </Column>
+             <Column>
+                <Text text="February" />
+            </Column>
+            <Column>
+                <Text text="March" />
+            </Column>
+        </columns>
+
+        <items>
+            <ColumnListItem vAlign="Middle">
+                <cells>
+                    <Text text="{salesTargetDataModel>CustomerID}" />
+
+                    <Text text="{salesTargetDataModel>UoM}" />
+
+                    <Text text="{salesTargetDataModel>FY}" />
+
+                    <Text text="{salesTargetDataModel>April}" />
+
+                    <Text text="{salesTargetDataModel>May}" />
+
+                    <Text text="{salesTargetDataModel>June}" />
+
+                    <Text text="{salesTargetDataModel>July}" />
+                     <Text text="{salesTargetDataModel>August}" />
+
+                    <Text text="{salesTargetDataModel>September}" />
+
+                    <Text text="{salesTargetDataModel>October}" />
+
+                    <Text text="{salesTargetDataModel>November}" />
+
+                    <Text text="{salesTargetDataModel>December}" />
+
+                    <Text text="{salesTargetDataModel>January}" />
+
+                    <Text text="{salesTargetDataModel>February}" />
+                    <Text text="{salesTargetDataModel>March}" />
+                </cells>
+            </ColumnListItem>
+        </items>
+    </Table>
+</mvc:View>

@@ -1,0 +1,208 @@
+<mvc:View
+    controllerName="zadminportalapp.controller.Customer"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+     xmlns:core="sap.ui.core"
+    displayBlock="true"
+    xmlns="sap.m"
+>
+   <Title text="Customer MAster Data" />
+            <Table
+                id="id_tb_cust_Table"
+                items="{path: 'masterDataModel>/CustomerMasterData'}"
+                inset="false"
+                selectionChange="onRowSelectionChangecustomer"
+                mode="SingleSelectLeft"
+            >
+                <headerToolbar>
+                    <OverflowToolbar>
+                        <content>
+                            <ToolbarSpacer />
+
+                            <Button
+                                id="id_cust_createButton"
+                                press="onOpenAddDialogCustomer"
+                                visible="true"
+                                tooltip="Create"
+                                icon="sap-icon://add"
+                            />
+                            <Button
+                                id="id_cust_editButton"
+                                press="onEditPressCustomer"
+                                tooltip="Edit"
+                                icon="sap-icon://edit"
+                                enabled="false"
+                            />
+
+                            <Button
+                                id="id_cust_deleteButton"
+                                press="onDeleteCustomer"
+                                visible="true"
+                                tooltip="Delete"
+                                icon="sap-icon://delete"
+                                enabled="false"
+                            />
+                        </content>
+
+                        <dependents>
+                            <Dialog
+                                title="Customer Master Data"
+                                id="id_cust_OpenDialog"
+                            >
+                                <buttons>
+                                    <Button
+                                        id="id_cust_confirmCreate"
+                                        text="Create"
+                                        press=".onCreateCustomer"
+                                        visible="false"
+                                        type="Emphasized"
+                                    />
+
+                                    <Button
+                                        id="id_cust_cancelCreate"
+                                        text="Cancel"
+                                        press="onCancelDialogCustomer"
+                                        type="Transparent"
+                                    />
+
+                                    <Button
+                                        id="id_cust_confirmSave"
+                                        text="Save"
+                                        press=".onSaveCustomer"
+                                        visible="false"
+                                        type="Emphasized"
+                                    />
+                                </buttons>
+
+                                <f:SimpleForm
+                                    layout="ResponsiveGridLayout"
+                                    editable="true"
+                                >
+                                    <f:content>
+                                        <Label text="Customer" />
+                                        <Input id="id_CustomerCode" />
+                                        <Label text="Name" />
+                                        <Input id="id_CustomerName" />
+                                        <Label text="SalesOfficer" />
+
+                                        <ComboBox id="id_CustomerSalesOfficer"
+                                            items="{path: 'salesofficerModel>/SalesOfficer'}">
+														<core:Item key="{salesofficerModel>SalesOfficerID}" text="{salesofficerModel>SalesofficerName}" />
+													
+                                        </ComboBox>
+                                        
+                                        <Label text="Branch" />
+                                        <ComboBox id="id_CustomerBranch">
+                                        
+                                            <core:Item
+                                                key="1"
+                                                text="MAd"
+                                            />
+                                            <core:Item
+                                                key="2"
+                                                text="BNr"
+                                            />
+                                        </ComboBox>
+                                        <Label text="Zone" />
+
+                                        <ComboBox id="id_CustomerZone" >
+                                        <core:Item
+                                                key="1"
+                                                text="north"
+                                            />
+                                            <core:Item
+                                                key="2"
+                                                text="south"
+                                            />
+                                        
+                                        </ComboBox>
+
+                                        <Label text="District" />
+
+                                        <ComboBox id="id_CustomerDistrict">
+                                            <core:Item
+                                                key="1"
+                                                text="MAd"
+                                            />
+                                            <core:Item
+                                                key="2"
+                                                text="BNr"
+                                            />
+                                        </ComboBox>
+
+                                        <Label text="Region" />
+
+                                        <ComboBox id="id_CustomerRegion">
+                                            <core:Item
+                                                key="1"
+                                                text="Central"
+                                            />
+                                            <core:Item
+                                                key="2"
+                                                text="ABC"
+                                            />
+                                        </ComboBox>
+                                        <Label text="Address" />
+                                        <TextArea id="id_CustomerAddress" value="{Address}" growing="true" width="100%" editable="true"/>
+                                        
+                                        
+                                    </f:content>
+                                </f:SimpleForm>
+                            </Dialog>
+                        </dependents>
+                    </OverflowToolbar>
+                </headerToolbar>
+
+                <columns>
+                    <Column>
+                        <Text text="Customer" />
+                    </Column>
+                    <Column>
+                        <Text text="Name" />
+                    </Column>
+                    <Column>
+                        <Text text="SalesOfficer" />
+                    </Column>
+
+                   
+                    <Column>
+                        <Text text="Branch" />
+                    </Column>
+                    <Column>
+                        <Text text="Zone" />
+                    </Column>
+                    <Column>
+                        <Text text="District" />
+                    </Column>
+                    <Column>
+                        <Text text="Region" />
+                    </Column>
+                    
+                </columns>
+
+                <items>
+                    <ColumnListItem vAlign="Middle">
+                        <cells>
+                            <Text text="{masterDataModel>Customer}" />
+
+                            <Text text="{masterDataModel>Name}" />
+                            <ObjectIdentifier text="{masterDataModel>Stypename}" />
+                             
+
+                            
+                            <Text text="{masterDataModel>Branch}" />
+
+                            <Text text="{masterDataModel>Zone}" />
+
+                            <Text text="{masterDataModel>District}" />
+                            <Text text="{masterDataModel>Region}" />
+
+                           
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+       
+    
+</mvc:View>
